@@ -47,3 +47,4 @@ xt = norminv(0.95,s_avg,t2);
 
 fprintf('Minimum difference in mean temperatures (0.95 confidence) is %4.3f degrees\n',abs(s_avg-xt));
 fprintf('Current difference in mean temperatures is %4.3f degrees\n',abs(c_t_avg-n_t_avg));
+
