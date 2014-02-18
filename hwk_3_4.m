@@ -34,9 +34,6 @@ plot(pdn,'r');
 hold on;
 plot(pdc,'b');
 
-% yL = get(gca,'YLim');
-% line([n_t_avg n_t_avg],yL,'Color','r');
-% line([c_t_avg c_t_avg],yL,'Color','g');
 
 xlabel('Temperature');
 ylabel('Probability');
@@ -48,3 +45,5 @@ xt = norminv(0.95,n_t_avg,t2);
 
 fprintf('Minimum difference in mean temperatures (0.95 confidence) is %4.3f degrees\n',abs(c_t_avg-xt));
 fprintf('Current difference in mean temperatures is %4.3f degrees\n',abs(c_t_avg-n_t_avg));
+
+
