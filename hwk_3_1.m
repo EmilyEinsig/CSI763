@@ -22,9 +22,10 @@ hist(s_b_avg,25);
 set(get(gca,'child'),'FaceColor','none','EdgeColor','r');
 hold on;
 hist(s_ub_avg,25);
-xlabel('Average Stdev Value');
+xlabel('Average STDEV Value');
 ylabel('Number of instances');
-title('Comparison of Biased(Blue) and Ubiased(Red) Standard Deviation');
+title('Comparison of Biased and Unbiased Standard Deviations');
+legend('Biased','Unbiased');
 
 hold off;
 
