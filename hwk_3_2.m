@@ -33,5 +33,5 @@ title('Comparison of xcorr & Manual Autocorrelation Functions');
 
  hold on;
  plot(c_lag,cc);
- legend('xcorr','Manual','Manual-Shortcut'); 
+ legend('xcorr','Manual'); 
  hold off;
