@@ -19,31 +19,18 @@ c_t_avg = sum(A(ind_c-3))/size(ind_c,1);
 s_n2 = sum((A(ind_n-3)-n_t_avg).^2);
 s_c2 = sum((A(ind_c-3)-c_t_avg).^2);
 
-mm=20; nn=20;
+nn=size(ind_n,1); 
+cc=size(ind_c,1);
 
-t2 = (n_t_avg - c_t_avg)/sqrt(s_n2/(mm*(mm-1))+s_c2/(nn*(nn-1)));
+t2 = (n_t_avg - c_t_avg)/sqrt(s_n2/(nn*(nn-1))+s_c2/(cc*(cc-1)));
 
-% Draw a gaussian (i.e., normal) distribution with sample mean and t2
-% standard deviation
-x=[0:100];
-pdn = normpdf(x,n_t_avg,t2);
-pdc = normpdf(x,c_t_avg,t2);
-
-figure(1);
-plot(pdn,'r');
-hold on;
-plot(pdc,'b');
-
-
-xlabel('Temperature');
-ylabel('Probability');
-title('Normal Probabilty Distribution Function: Nino average(Red), Clear average(Blue) ');
+fprintf('t value = %4.5f\n',t2);
 
 % Find 95% confidence
+t_exp = 2.7764;
+tdiff = sqrt(s_n2/(nn*(nn-1))+s_c2/(cc*(cc-1)))*t_exp;
 
-xt = norminv(0.95,n_t_avg,t2);
-
-fprintf('Minimum difference in mean temperatures (0.95 confidence) is %4.3f degrees\n',abs(c_t_avg-xt));
+fprintf('Minimum difference in mean temperatures (0.95 confidence) is %4.3f degrees\n',abs(tdiff));
 fprintf('Current difference in mean temperatures is %4.3f degrees\n',abs(c_t_avg-n_t_avg));
 
 
