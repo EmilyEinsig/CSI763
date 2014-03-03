@@ -50,7 +50,7 @@ fprintf('The null hypothesis is rejected with a confidence of 0.1\n\n');
 
 fprintf('One not rejected conclusion at 0.1 confidence level occurs every %1.5e runs\n\n',p);
 
-
+% Compute chi-squared value
 for i=1:1000
    diff(i) = ((y(i)-x(i))^2)/x(i);
 end
