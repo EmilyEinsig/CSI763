@@ -27,7 +27,7 @@ zz=z';
 p = A\zz;
 
 fprintf('For a_0 = 0.1 & b_0 = 0.1,\n');
-fprintf('a = %4.5f, b = %4.5f, c = %4.5f\n\n',p(2),p(3),p(4)); 
+fprintf('a = %4.20f, b = %4.20f, c = %4.20f\n\n',p(2),p(3),p(4)); 
 
 
 %REPEAT WITH DIFFERENT INITIAL CONDITIONS
@@ -58,4 +58,4 @@ zz2=z2';
 p2 = A2\zz2;
 
 fprintf('For a_0 = 0.9 & b_0 = 0.1,\n');
-fprintf('a = %4.5f, b = %4.5f, c = %4.5f\n\n',p2(2),p2(3),p2(4)); 
+fprintf('a = %4.20f, b = %4.20f, c = %4.20f\n\n',p2(2),p2(3),p2(4)); 
