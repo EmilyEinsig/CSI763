@@ -86,25 +86,25 @@ ft_p_5 = 1/Fs*[0:1/NFFT5:1/2];
 
 % Zero out peaks
 % stat1
- ft_1_z = 2*abs(ft_1(2:NFFT1/2+1));
-[max_value11, index11] = max(ft_1_z(1:end));
-ft_1_z(index11-1:index11+1)=0;
-[max_value21, index21] = max(ft_1_z(10:end));
-ft_1_z(index21-1:index21+1)=0;
+ ft_1_z = ft_1;
+[max_value11, index11] = max(2*abs(ft_1(2:NFFT1/2+1)));
+ft_1_z(index11:index11+2)=0;
+[max_value21, index21] = max(2*abs(ft_1(10:NFFT1/2+1)));
+ft_1_z(index21:index21+2)=0;
 
 
 figure(1);
 subplot(2,1,1);
 plot(ft_p_1(2:end),2*abs(ft_1(2:NFFT1/2+1))) 
 hold on;
-plot([ft_p_1(index21),ft_p_1(index21)],[0,0.6],'k-');
+plot([ft_p_1(index21+1),ft_p_1(index21+1)],[0,0.6],'k-');
 title('Single-Sided Amplitude Spectrum of B(t) - Stationary 1')
 xlabel('Frequency (Hz)')
 ylabel('|B(f)|')
 hold off;
 subplot(2,1,2);
-plot(ft_p_1(2:end),ft_1_z) 
-title('Single-Sided Amplitude Spectrum of B(t) - Stationary 1')
+plot(ft_p_1(2:end),2*abs(ft_1_z(2:NFFT1/2+1)))
+title('Single-Sided Amplitude Spectrum of Zeroed B(t) - Stationary 1')
 xlabel('Frequency (Hz)')
 ylabel('|B(f)|')
 axis([0 35 0 0.6]);
