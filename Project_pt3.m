@@ -53,7 +53,7 @@ Bi_5 = Bi(223681:227521);
 % stat1
 figure(1);
 subplot(5,1,1);
-plot(ti_1,Bi_1);
+plot(ti_1/(1000000*3600*24),Bi_1);
 datetick('x','HH:MM:SS');
 xlabel('Time');
 ylabel('B Magnitude (nT)');
@@ -61,7 +61,7 @@ title('Magnetic Field Magnitude for 08 November 2012 - Stationary 1');
 
 % stat2
 subplot(5,1,2);
-plot(ti_2,Bi_2);
+plot(ti_2/(1000000*3600*24),Bi_2);
 datetick('x','HH:MM:SS');
 xlabel('Time');
 ylabel('B Magnitude (nT)');
@@ -69,7 +69,7 @@ title('Magnetic Field Magnitude for 08 November 2012 - Stationary 2');
 
 % stat3
 subplot(5,1,3);
-plot(ti_3,Bi_3);
+plot(ti_3/(1000000*3600*24),Bi_3);
 datetick('x','HH:MM:SS');
 xlabel('Time');
 ylabel('BMagnitude (nT)');
@@ -77,7 +77,7 @@ title('Magnetic Field Magnitude for 08 November 2012 - Stationary 3');
 
 % stat4
 subplot(5,1,4);
-plot(ti_4,Bi_4);
+plot(ti_4/(1000000*3600*24),Bi_4);
 datetick('x','HH:MM:SS');
 xlabel('Time');
 ylabel('B Magnitude (nT)');
@@ -85,7 +85,7 @@ title('Magnetic Field Magnitude for 08 November 2012 - Stationary 4');
 
 % stat5
 subplot(5,1,5);
-plot(ti_5,Bi_5);
+plot(ti_5/(1000000*3600*24),Bi_5);
 datetick('x','HH:MM:SS');
 xlabel('Time');
 ylabel('B Magnitude (nT)');
