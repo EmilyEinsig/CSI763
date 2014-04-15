@@ -263,18 +263,65 @@ hold off;
 
 
 % CONDUCT FFT ON MOVING WINDOW OF INVERSED ZEROED B MAGNITUDE
+% To get 1000 FFTs across the 5 segments, 200 FFTs per segment
+
 % stat1
-% Fs = (ti(2)-ti(1))*10^-6;% Sampling frequency, convert from microseconds to seconds
-% L1 = size(Bi_1,2); % Length of signal
-% NFFT1 = 2^nextpow2(L1); % Next power of 2 from length of array
-% ft_1 = fft(Bi_1-mean(Bi_1),NFFT1)/L1;
-% ft_p_1 = 1/Fs*[0:1/NFFT1:1/2];
+Fs_zz = (ti(2)-ti(1))*10^-6;% Sampling frequency, convert from microseconds to seconds
+L1_zz = floor(size(Bi_1_z,2)/200); % Length of signal
+NFFT1_zz = 2^nextpow2(L1_zz); % Next power of 2 from length of array
+
+for i=1:201
+    ft_1_zz(:,i) = fft(Bi_1_z(i:i*L1_zz)-mean(Bi_1_z(i:i*L1_zz)),NFFT1_zz)/L1_zz;
+end
+ft_p_1_zz = 1/Fs_zz*[0:1/NFFT1_zz:1/2];
+
+% stat2
+L2_zz = floor(size(Bi_2_z,2)/200); % Length of signal
+NFFT2_zz = 2^nextpow2(L2_zz); % Next power of 2 from length of array
+
+for i=1:201
+    ft_2_zz(:,i) = fft(Bi_2_z(i:i*L2_zz)-mean(Bi_2_z(i:i*L2_zz)),NFFT2_zz)/L2_zz;
+end
+ft_p_2_zz = 1/Fs_zz*[0:1/NFFT2_zz:1/2];
+
+% stat3
+L3_zz = floor(size(Bi_3_z,2)/200); % Length of signal
+NFFT3_zz = 2^nextpow2(L3_zz); % Next power of 2 from length of array
+
+for i=1:201
+    ft_3_zz(:,i) = fft(Bi_3_z(i:i*L3_zz)-mean(Bi_3_z(i:i*L3_zz)),NFFT3_zz)/L3_zz;
+end
+ft_p_3_zz = 1/Fs_zz*[0:1/NFFT3_zz:1/2];
+
+% stat4
+L4_zz = floor(size(Bi_4_z,2)/200); % Length of signal
+NFFT4_zz = 2^nextpow2(L4_zz); % Next power of 2 from length of array
+
+for i=1:201
+    ft_4_zz(:,i) = fft(Bi_4_z(i:i*L4_zz)-mean(Bi_4_z(i:i*L4_zz)),NFFT4_zz)/L4_zz;
+end
+ft_p_4_zz = 1/Fs_zz*[0:1/NFFT4_zz:1/2];
+
+% stat5
+L5_zz = floor(size(Bi_5_z,2)/200); % Length of signal
+NFFT5_zz = 2^nextpow2(L5_zz); % Next power of 2 from length of array
+
+for i=1:201
+    ft_5_zz(:,i) = fft(Bi_5_z(i:i*L5_zz)-mean(Bi_5_z(i:i*L5_zz)),NFFT5_zz)/L5_zz;
+end
+ft_p_5_zz = 1/Fs_zz*[0:1/NFFT5_zz:1/2];
 
 %  Plot single-sided amplitude spectrum
-% figure(2);
-% plot(ft_p_1(2:end),2*abs(ft_1(2:NFFT1/2+1))) 
-% title('Single-Sided Amplitude Spectrum of B(t) - Stationary 1')
-% xlabel('Frequency (Hz)')
-% ylabel('|B(f)|')
+figure(3);
+plot(ft_p_1_zz(2:end),2*abs(ft_1_zz(:,2:NFFT1_zz/2+1)));
+hold on;
+plot(ft_p_2_zz(2:end),2*abs(ft_2_zz(:,2:NFFT2_zz/2+1)));
+plot(ft_p_3_zz(2:end),2*abs(ft_3_zz(:,2:NFFT3_zz/2+1)));
+plot(ft_p_4_zz(2:end),2*abs(ft_4_zz(:,2:NFFT4_zz/2+1)));
+plot(ft_p_5_zz(2:end),2*abs(ft_5_zz(:,2:NFFT5_zz/2+1)));
+title('Moving Window FFTs of Zeroed B Magnitude')
+xlabel('Frequency (Hz)')
+ylabel('|B(f)|')
+hold off;
 
 
