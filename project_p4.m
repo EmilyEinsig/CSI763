@@ -313,15 +313,18 @@ ft_p_5_zz = 1/Fs_zz*[0:1/NFFT5_zz:1/2];
 
 %  Plot single-sided amplitude spectrum
 figure(3);
-plot(ft_p_1_zz(2:end),2*abs(ft_1_zz(:,2:NFFT1_zz/2+1)));
+plot(ft_p_1_zz(2:end),2*abs(ft_1_zz(2:NFFT1_zz/2+1,:)));
 hold on;
-plot(ft_p_2_zz(2:end),2*abs(ft_2_zz(:,2:NFFT2_zz/2+1)));
-plot(ft_p_3_zz(2:end),2*abs(ft_3_zz(:,2:NFFT3_zz/2+1)));
-plot(ft_p_4_zz(2:end),2*abs(ft_4_zz(:,2:NFFT4_zz/2+1)));
-plot(ft_p_5_zz(2:end),2*abs(ft_5_zz(:,2:NFFT5_zz/2+1)));
+plot(ft_p_2_zz(2:end),2*abs(ft_2_zz(2:NFFT2_zz/2+1,:)));
+plot(ft_p_3_zz(2:end),2*abs(ft_3_zz(2:NFFT3_zz/2+1,:)));
+plot(ft_p_4_zz(2:end),2*abs(ft_4_zz(2:NFFT4_zz/2+1,:)));
+plot(ft_p_5_zz(2:end),2*abs(ft_5_zz(2:NFFT5_zz/2+1,:)));
 title('Moving Window FFTs of Zeroed B Magnitude')
 xlabel('Frequency (Hz)')
 ylabel('|B(f)|')
 hold off;
+
+% DETERMINE MOST COMMON PERIODIGRAMS
+% find smallest average distance across all 1000 FFTs
 
 
