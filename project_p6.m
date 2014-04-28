@@ -139,16 +139,99 @@ Bi_5_z = ifft(ft_5_z,NFFT5)*L5+mean(Bi_5);
 
 
 % Plot Peak magntides
-t_p6 = [1:6];
-t_p5 = [1:5];
+% figure(1);
+% plot((ti_1(locs1)-ti_1(1))/(1000000*3600*24),pks1,'-bo'); hold on;
+% plot((ti_2(locs2)-ti_2(1))/(1000000*3600*24),pks2,'-ro');
+% plot((ti_3(locs3)-ti_3(1))/(1000000*3600*24),pks3,'-go');
+% plot((ti_4(locs4)-ti_4(1))/(1000000*3600*24),pks4,'-ko');
+% plot((ti_5(locs5)-ti_5(1))/(1000000*3600*24),pks5,'-mo');
+% xlabel('Time (s)');
+% ylabel('Relative (to mean) Peak Magnitude');
+% datetick('x','SS');
+% legend('Stationary 1','Stationary 2','Stationary 3','Stationary 4','Stationary 5');
 
+
+% Display spectrogram (zeroed data)
 figure(1);
-plot((ti_1(locs1)-ti_1(1))/(1000000*3600*24),pks1,'-bo'); hold on;
-plot((ti_2(locs2)-ti_2(1))/(1000000*3600*24),pks2,'-ro');
-plot((ti_3(locs3)-ti_3(1))/(1000000*3600*24),pks3,'-go');
-plot((ti_4(locs4)-ti_4(1))/(1000000*3600*24),pks4,'-ko');
-plot((ti_5(locs5)-ti_5(1))/(1000000*3600*24),pks5,'-mo');
+subplot(2,1,1);
+plot((ti_2(locs2)-ti_2(1))/(1000000*3600*24),pks2,'-wo');hold on;
+plot((ti_1(locs1)-ti_1(1))/(1000000*3600*24),pks1,'-bo'); 
 xlabel('Time (s)');
 ylabel('Relative (to mean) Peak Magnitude');
 datetick('x','SS');
-legend('Stationary 1','Stationary 2','Stationary 3','Stationary 4','Stationary 5');
+title('Stationary 1');
+
+subplot(2,1,2);
+spectrogram(Bi_1_z(1:size(ti_1,2))-mean(Bi_1_z(1:size(ti_1,2))),256,250,NFFT1,1/Fs,'yaxis'); % Display the spectrogram
+title('Stationary 1')
+ylabel('Frequency [Hz]');
+xlabel('Time [s]');
+ylim([0 5]);
+
+% stat 2
+figure(2);
+subplot(2,1,1);
+plot((ti_1(locs1)-ti_1(1))/(1000000*3600*24),pks1,'-wo');hold on;
+plot((ti_2(locs2)-ti_2(1))/(1000000*3600*24),pks2,'-bo');
+xlabel('Time (s)');
+ylabel('Relative (to mean) Peak Magnitude');
+datetick('x','SS');
+title('Stationary 2');
+
+subplot(2,1,2);
+spectrogram(Bi_2_z(1:size(ti_2,2))-mean(Bi_2_z(1:size(ti_2,2))),256,250,NFFT2,1/Fs,'yaxis'); % Display the spectrogram
+title('Stationary 2')
+ylabel('Frequency [Hz]');
+xlabel('Time [s]');
+ylim([0 5]);
+
+% stat 3
+figure(3);
+subplot(2,1,1);
+plot((ti_1(locs1)-ti_1(1))/(1000000*3600*24),pks1,'-wo');hold on;
+plot((ti_3(locs3)-ti_3(1))/(1000000*3600*24),pks3,'-bo');
+xlabel('Time (s)');
+ylabel('Relative (to mean) Peak Magnitude');
+datetick('x','SS');
+title('Stationary 3');
+
+subplot(2,1,2);
+spectrogram(Bi_3_z(1:size(ti_3,2))-mean(Bi_3_z(1:size(ti_3,2))),256,250,NFFT3,1/Fs,'yaxis'); % Display the spectrogram
+title('Stationary 3')
+ylabel('Frequency [Hz]');
+xlabel('Time [s]');
+ylim([0 5]);
+
+% stat 4
+figure(4);
+subplot(2,1,1);
+plot((ti_1(locs1)-ti_1(1))/(1000000*3600*24),pks1,'-wo');hold on;
+plot((ti_4(locs4)-ti_4(1))/(1000000*3600*24),pks4,'-bo');
+xlabel('Time (s)');
+ylabel('Relative (to mean) Peak Magnitude');
+datetick('x','SS');
+title('Stationary 4');
+
+subplot(2,1,2);
+spectrogram(Bi_4_z(1:size(ti_4,2))-mean(Bi_4_z(1:size(ti_4,2))),256,250,NFFT4,1/Fs,'yaxis'); % Display the spectrogram
+title('Stationary 4')
+ylabel('Frequency [Hz]');
+xlabel('Time [s]');
+ylim([0 5]);
+
+% stat 5
+figure(5);
+subplot(2,1,1);
+plot((ti_1(locs1)-ti_1(1))/(1000000*3600*24),pks1,'-wo');hold on;
+plot((ti_5(locs5)-ti_5(1))/(1000000*3600*24),pks5,'-bo');
+xlabel('Time (s)');
+ylabel('Relative (to mean) Peak Magnitude');
+datetick('x','SS');
+title('Stationary 5');
+
+subplot(2,1,2);
+spectrogram(Bi_5_z(1:size(ti_5,2))-mean(Bi_5_z(1:size(ti_5,2))),256,250,NFFT5,1/Fs,'yaxis'); % Display the spectrogram
+title('Stationary 5')
+ylabel('Frequency [Hz]');
+xlabel('Time [s]');
+ylim([0 5]);
