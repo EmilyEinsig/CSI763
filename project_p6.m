@@ -143,21 +143,12 @@ t_p6 = [1:6];
 t_p5 = [1:5];
 
 figure(1);
-%subplot(5,1,1);
-plot(t_p6,pks1,'-bo'); hold on;
-plot(t_p6,pks2,'-ro');
-plot(t_p5,pks3,'-go');
-plot(t_p5,pks4,'-ko');
-plot(t_p6,pks5,'-mo');
-xlabel('Peak Number');
+plot((ti_1(locs1)-ti_1(1))/(1000000*3600*24),pks1,'-bo'); hold on;
+plot((ti_2(locs2)-ti_2(1))/(1000000*3600*24),pks2,'-ro');
+plot((ti_3(locs3)-ti_3(1))/(1000000*3600*24),pks3,'-go');
+plot((ti_4(locs4)-ti_4(1))/(1000000*3600*24),pks4,'-ko');
+plot((ti_5(locs5)-ti_5(1))/(1000000*3600*24),pks5,'-mo');
+xlabel('Time (s)');
 ylabel('Relative (to mean) Peak Magnitude');
-set(gca,'xtick',1:6);
+datetick('x','SS');
 legend('Stationary 1','Stationary 2','Stationary 3','Stationary 4','Stationary 5');
-
-
-
-
-
-
-
-
