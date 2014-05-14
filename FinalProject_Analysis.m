@@ -468,10 +468,9 @@ clear; clc;
     %datetick(AX1(1),'x','SS');
     datetick(AX1(2),'x','SS');
     hold on;
-    line(T1+(ti_1(1)/(1000000*3600*24)),P1_l,'parent',AX1(1),'color','r');
     xlabel('Time (s)');
     title(sprintf('Figure 6: B Magnitude overlaid on Spectrogram Intensity:\n Stationary 1'));
-    legend('log(I)','log(I) lower bound','B_{mag}');
+    legend('log(I)','B_{mag}');
     hold off;
 
     % stat 2
@@ -482,10 +481,9 @@ clear; clc;
     %datetick(AX2(1),'x','SS');
     datetick(AX2(2),'x','SS');
     hold on;
-    line(T2+(ti_2(1)/(1000000*3600*24)),P2_l,'parent',AX2(1),'color','r');
     xlabel('Time (s)');
     title(sprintf('Figure 6: B Magnitude overlaid on Spectrogram Intensity:\n Stationary 2'));
-    legend('log(I)','log(I) lower bound','B_{mag}');
+    legend('log(I)','B_{mag}');
     hold off;
     
     % stat 3
@@ -496,10 +494,9 @@ clear; clc;
     %datetick(AX3(1),'x','SS');
     datetick(AX3(2),'x','SS');
     hold on;
-    line(T3+(ti_3(1)/(1000000*3600*24)),P3_l,'parent',AX3(1),'color','r');
     xlabel('Time (s)');
     title(sprintf('Figure 6: B Magnitude overlaid on Spectrogram Intensity:\n Stationary 3'));
-    legend('log(I)','log(I) lower bound','B_{mag}');
+    legend('log(I)','B_{mag}');
     hold off;
     
     % stat 4
@@ -510,10 +507,9 @@ clear; clc;
     %datetick(AX4(1),'x','SS');
     datetick(AX4(2),'x','SS');
     hold on;
-    line(T4+(ti_4(1)/(1000000*3600*24)),P4_l,'parent',AX4(1),'color','r');
     xlabel('Time (s)');
     title(sprintf('Figure 6: B Magnitude overlaid on Spectrogram Intensity:\n Stationary 4'));
-    legend('log(I)','log(I) lower bound','B_{mag}');
+    legend('log(I)','B_{mag}');
     hold off;
     
     % stat 5
@@ -524,10 +520,9 @@ clear; clc;
     %datetick(AX5(1),'x','SS');
     datetick(AX5(2),'x','SS');
     hold on;
-    line(T5+(ti_5(1)/(1000000*3600*24)),P5_l,'parent',AX5(1),'color','r');
     xlabel('Time (s)');
     title(sprintf('Figure 6: B Magnitude overlaid on Spectrogram Intensity:\n Stationary 5'));
-    legend('log(I)','log(I) lower bound','B_{mag}');
+    legend('log(I)','B_{mag}');
     hold off;
     
 % Figure D: Spectrogram of entire dataset
