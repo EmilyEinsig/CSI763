@@ -378,30 +378,20 @@ clear; clc;
     P5_t = mean(P5(1:loc5,:)); 
 
     % Calcuate error bars
-    P1_l = 10*log10(abs(mean(P1_t))/3.69);
-    P1_u = 10*log10(abs(mean(P1_t))*39.22);
-    P1_l = ones(1,size(T1,2))*P1_l;
-    P1_u = ones(1,size(T1,2))*P1_u;
+    P1_l = 10*log10(abs(P1_t)/3.69);
+    P1_u = 10*log10(abs(P1_t)*39.22);
 
-    P2_l = 10*log10(abs(mean(P2_t))/3.69);
-    P2_u = 10*log10(abs(mean(P2_t))*39.22);
-    P2_l = ones(1,size(T2,2))*P2_l;
-    P2_u = ones(1,size(T2,2))*P2_u;
+    P2_l = 10*log10(abs(P2_t)/3.69);
+    P2_u = 10*log10(abs(P2_t)*39.22);
 
-    P3_l = 10*log10(abs(mean(P3_t))/3.69);
-    P3_u = 10*log10(abs(mean(P3_t))*39.22);
-    P3_l = ones(1,size(T3,2))*P3_l;
-    P3_u = ones(1,size(T3,2))*P3_u;
+    P3_l = 10*log10(abs(P3_t)/3.69);
+    P3_u = 10*log10(abs(P3_t)*39.22);
 
-    P4_l = 10*log10(abs(mean(P4_t))/3.69);
-    P4_u = 10*log10(abs(mean(P4_t))*39.22);
-    P4_l = ones(1,size(T4,2))*P4_l;
-    P4_u = ones(1,size(T4,2))*P4_u;
+    P4_l = 10*log10(abs(P4_t)/3.69);
+    P4_u = 10*log10(abs(P4_t)*39.22);
 
-    P5_l = 10*log10(abs(mean(P5_t))/3.69);
-    P5_u = 10*log10(abs(mean(P5_t))*39.22);
-    P5_l = ones(1,size(T5,2))*P5_l;
-    P5_u = ones(1,size(T5,2))*P5_u;
+    P5_l = 10*log10(abs(P5_t)/3.69);
+    P5_u = 10*log10(abs(P5_t)*39.22);
 
     % Plot ampltiude of spectrogram below 0.5 Hz
     figure(6);
@@ -414,7 +404,7 @@ clear; clc;
     title(sprintf('Figure 5: Magnitude of Averaged Intensity Below 0.5 Hz\n Stationary 1'));
     ylabel('log(I)');
     xlabel('Time (s)');
-    ylim([-20 20]);
+    ylim([-30 20]);
     hold off;
 
     % stat 2
@@ -426,7 +416,7 @@ clear; clc;
     title('Stationary 2')
     ylabel('log(I)');
     xlabel('Time (s)');
-    ylim([-20 20]);
+    ylim([-30 20]);
     hold off;
 
     % stat 3
@@ -438,31 +428,32 @@ clear; clc;
     title('Stationary 3')
     ylabel('log(I)');
     xlabel('Time (s)');
-    ylim([-20 20]);
+    ylim([-30 20]);
     hold off;
 
     % stat 4
     subplot(5,1,4);hold on;
     P4_X = [T4,fliplr(T4)];
     P4_Y = [P4_l,fliplr(P4_u)];
-    fill(P1_X,P1_Y,'c','edgecolor','c');
+    fill(P4_X,P4_Y,'c','edgecolor','c');
     plot(T4,10*log10(abs(P4_t)));
     title('Stationary 4')
     ylabel('log(I)');
     xlabel('Time (s)');
-    ylim([-20 20]);
+    ylim([-30 20]);
+    xlim([0 45]);
     hold off;
 
     % stat 5
     subplot(5,1,5);hold on;
     P5_X = [T5,fliplr(T5)];
     P5_Y = [P5_l,fliplr(P5_u)];
-    fill(P1_X,P1_Y,'c','edgecolor','c');
+    fill(P5_X,P5_Y,'c','edgecolor','c');
     plot(T5,10*log10(abs(P5_t)));
     title('Stationary 5')
     ylabel('log(I)');
     xlabel('Time (s)');
-    ylim([-20 20]);
+    ylim([-30 20]);
     hold off;
  
 % Figure 6: B mag over Confidence level of sprectrogram peaks below 0.5 Hz
